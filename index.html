@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>メディタイム</title>
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/vue.min.js"></script>
+    </head>
+        <body>
+            <header>
+                <div id="header">
+                    <h1>メディタイム</h1>
+                </div>
+            </header>
+        
+            <div id="app" class="content">
+                <div id="subtitle">
+                    <h3>〜アプリ×薬ケース=確薬〜</h3>
+                </div>
+                <div id="setting_div">
+                    <div id="setting">
+                        <h2>今日の設定時間</h2>
+                        <div v-for="i in hukuyouTime.length">
+                            <div v-if="valid[i - 1].hukuyouTime == 1">
+                                <div v-if="hukuyouTime[i - 1][day] == ''">
+                                    {{hukuyouTime[i - 1]['label'] }}: --:--
+                                </div>
+                                <div v-else>
+                                    {{hukuyouTime[i - 1]['label'] }}: {{hukuyouTime[i - 1][day] }}
+                                </div>
+                            </div>
+                            <div v-else>
+                                {{hukuyouTime[i - 1]['label'] }}: OFF
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                
+                <div id="logo_div">
+                    <img id="logo" src="img/logo.png">
+                </div>
+            </div>
+
+            <div id="options">
+                <a href="index.html">
+                    <div class="option" style="color: black">
+                        ホーム<br>
+                        <ion-icon class="option_icon" name="home"></ion-icon>
+                    </div>
+                </a>
+                <a href="hukuyouTime.html">
+                    <div class="option">
+                        通知設定<br>
+                        <ion-icon class="option_icon" name="settings-outline"></ion-icon>
+                    </div>
+                </a>
+                <a href="calender.html">
+                    <div class="option">
+                        服薬履歴<br>
+                        <ion-icon class="option_icon" name="calendar-outline"></ion-icon>
+                    </div>
+                </a>
+                <a href="visiting_calender.html">
+                    <div class="option">
+                        通院履歴<br>
+                        <ion-icon class="option_icon" name="pricetag-outline"></ion-icon>
+                    </div>
+                </a>
+            </div>
+            <script src="js/index.js"></script>
+        </body>
+</html>

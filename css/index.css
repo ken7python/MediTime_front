@@ -1,0 +1,72 @@
+#setting_div{
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    margin:  0 auto;
+
+    animation: fadein 1.5s;
+}
+#setting{
+    font-size: 1.2em;
+}
+
+@keyframes slidein{
+    0%{
+        transform: translateX(400px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+#subtitle{
+    text-align: center;
+    animation: slidein 1.5s;
+}
+
+@keyframes fadein{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes fadein_logo{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 50%;
+    }
+}
+
+#logo_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 100%;
+}
+
+#logo {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    opacity: 50%;
+    animation: fadein_logo 1.5s;
+}
+
+@media (max-height: 700px) {
+    #logo_div {
+        height: 20vh;
+    }
+}
+
+@media (min-height: 701px) and (max-height: 1024px) {
+    #logo_div {
+        height: 35vh;
+    }
+}

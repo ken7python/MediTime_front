@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/hukuyouTime.css">
+        <script src="js/config.js"></script>
+        <script src="js/vue.min.js"></script>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <title>通知設定</title>
+    </head>
+        <body>
+            <header>
+                <div id="header">
+                    <h1>通知設定</h1>
+                </div>
+            </header>
+            <div id="main" class="content">
+                <div class="select_wrapper">
+                    服薬選択
+                    <select class="select" id="time_select" onchange="updateData();">
+                        <option value="朝">朝</option>
+                        <option value="昼">昼</option>
+                        <option value="夜">夜</option>
+                        <option value="寝る前">寝る前</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="toggle_button">
+                    <span class="offText">通知　OFF</span>
+                    <input id="valid_button" class="toggle_input" type='checkbox' onchange="updateVue()"/>
+                    <label for="toggle" class="toggle_label"/>
+                        <span class="onText">ON</span>
+                    </label>
+                </div>
+                <div v-show="valid_button"　class="toggle_button" id="schedule_field">
+                        <!---
+                        <input id="WeekdaySchedule" class="toggle_input" type='checkbox' onchange="updateVue();"/>
+                        <label for="toggle" class="toggle_label"/>
+                    -->
+                    <span >曜日スケジュール</span>
+                    <div class="schedule_checkboxes" id="schedule_checkboxes_div">
+                        <input id="everydayCheckBox" type="radio" name="schedule" onchange="updateVue();"/>
+                        <label for="everydayCheckBox">毎日同じ時間</label>
+                        <br>
+                        <br>
+                        <input type="radio" id="WeekdaySchedule" name="schedule" onchange="updateVue();"/>
+                        <label for="WeekdaySchedule">曜日ごとに設定</label>
+                    </div>
+                </div>
+
+                <div id="schedule_wrapper">
+                    <div v-show="valid_button && !weekdaySchedule" class="time_input" id="everyday">
+                        <input type="time" name="time" id="everydaySchedule" placeholder="時間を入力" onchange="setScheduleColor();">
+                    </div>
+                    <div v-show="valid_button && weekdaySchedule" class="time_input" id="weekday">
+                        日<input type="time" name="time" id="sunday" placeholder="時間を入力" onchange="setScheduleColor();"><br>
+                        月<input type="time" name="time" id="monday" placeholder="時間を入力" onchange="setScheduleColor();"><br>
+                        火<input type="time" name="time" id="tuesday" placeholder="時間を入力" onchange="setScheduleColor();"><br>
+                        水<input type="time" name="time" id="wednesday" placeholder="時間を入力" onchange="setScheduleColor();" ><br>
+                        木<input type="time" name="time" id="thursday" placeholder="時間を入力" onchange="setScheduleColor();"><br>
+                        金<input type="time" name="time" id="friday" placeholder="時間を入力" onchange="setScheduleColor();"><br>
+                        土<input type="time" name="time" id="saturday" placeholder="時間を入力" onchange="setScheduleColor();"><br>
+                    </div>
+                </div>
+                <br>
+                <button onclick="setHukuyouTime()">設定</button>
+                <!--<a class="back" href="index.html"><ion-icon name="arrow-back-circle-outline"></ion-icon></a>-->
+            </div>
+
+            
+            <div id="options">
+                <a href="index.html">
+                    <div class="option">
+                        ホーム<br>
+                        <ion-icon class="option_icon" name="home-outline"></ion-icon>
+                    </div>
+                </a>
+                <a href="hukuyouTime.html">
+                    <div class="option" style="color: black">
+                        通知設定<br>
+                        <ion-icon class="option_icon" name="settings"></ion-icon>
+                    </div>
+                </a>
+                <a href="calender.html">
+                    <div class="option">
+                        服薬履歴<br>
+                        <ion-icon class="option_icon" name="calendar-outline"></ion-icon>
+                    </div>
+                </a>
+                <a href="visiting_calender.html">
+                    <div class="option">
+                        通院履歴<br>
+                        <ion-icon class="option_icon" name="pricetag-outline"></ion-icon>
+                    </div>
+                </a>
+            </div>
+        
+        </body>
+
+        <script src="js/hukuyouTime.js"></script>
+</html>

@@ -1,0 +1,27 @@
+.onText {
+    position: absolute;
+    width: 100px;
+    left: 80px;
+
+    top: 4px;
+}
+.offText{
+    position:relative;
+    width: 100px;
+    left: 0px;
+    top: -10px;
+}
+
+input[type="time"] {
+    margin: 5px;
+    width: 150px;
+    height: 30px;
+    font-size: 1.5rem;
+}
+#schedule_field{
+    width: 330px;
+    height: 100px;
+}
+#schedule_checkboxes_div{
+    float: right;
+}

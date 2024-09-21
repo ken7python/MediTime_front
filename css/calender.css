@@ -1,0 +1,121 @@
+/*カレンダー*/
+.ec-start button{
+    width:40px;
+    height: 40px;
+}
+.ec-end button {
+    width: 70px;
+    height: 40px;
+}
+.ec-title{
+    position: relative;
+    top: -5px;
+
+    font-size: 24px;
+    text-align: center;
+}
+h4{
+    font-size:13px;
+    
+}
+.ec-day-head{
+    font-size:16px;
+}
+/*モーダル*/
+.modal{
+    position: fixed;
+    top: 95px;
+    left: 0px;
+
+    height: calc(100vh - (90px + 80px));
+    width: 100vw;
+
+    background-color:whitesmoke;
+
+    overflow: auto;
+    overflow-x: hidden; /* 横方向はスクロールさせない */
+    overflow-y: auto; /* 縦方向のみスクロール可能 */
+
+    display: none;
+    z-index: 10;
+}
+
+.modal {
+    animation: slideinTop 1s;
+}
+@keyframes slideinTop {
+    0% {
+        transform: translateY(-1000px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-1000px);
+        display: none;
+    }
+}
+
+.modal h1{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.close{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    font-size: 40px;
+}
+
+#checkboxes{
+    font-size: 1.4rem;
+}
+
+#select_day_message{
+    color: red;
+}
+/*リロードボタン*/
+.reload {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    text-decoration: none;
+}
+.reload ion-icon{
+    font-size: 40px;
+}
+/*プリントボタン*/
+.print {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    text-decoration: none;
+}
+.print ion-icon{
+    font-size: 40px;
+}
+
+/*テキストボックス*/
+.underline-input {
+    position: relative;
+    top: 0px;
+    left: 10px;
+    font-size: 1.5rem;
+    border: none; /* ボーダーを完全に削除 */
+    background-color: transparent;
+    border-bottom: 2px solid #000; /* 下線を作成 */
+    padding: 5px;
+    width: 80%; /* テキストボックスの幅を指定 */
+    outline: none; /* フォーカス時の青枠を非表示 */
+}
+
+/* フォーカス時のスタイル変更 */
+.underline-input:focus {
+    border-bottom: 2px solid #007BFF; /* フォーカス時に下線の色を変更 */
+}

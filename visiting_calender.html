@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>通院履歴</title>
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/event_calender.min.css">
+        <link rel="stylesheet" href="css/calender.css">
+        <script src="js/event_calender.min.js"></script>
+        <script src="js/config.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="header">
+                <h1>通院履歴</h1>
+            </div>
+        </header>
+        <div class="content">
+            <div id="mode">
+                <input type="radio" id="add_history" name="mode" onclick="mode_check('modal_add_visiting');">
+                <label for="add_history">通院入力</label>
+                <br>
+
+                <br>
+
+                <input type="radio" id="add_memo" name="mode" onclick="mode_check('modal_add_memo');">
+                <label for="add_memo">メモ追加</label>
+
+                <p id="select_day_message">日を選択して下さい</p>
+            </div>
+            <div id="ec">
+                
+            </div>
+        </div>
+        <!--
+        <a class="back" href="index.html"><ion-icon name="arrow-back-circle-outline"></ion-icon></a>
+        -->
+        <a class="reload" onclick="location.reload()"><ion-icon name="refresh-outline"></ion-icon></button>
+        <!--<a class="print" onclick="window.print()"><ion-icon name="print-outline"></ion-icon></button>-->
+
+            <div id="options">
+                <a href="index.html">
+                    <div class="option">
+                        ホーム<br>
+                        <ion-icon class="option_icon" name="home-outline"></ion-icon>
+                    </div>
+                </a>
+                <a href="hukuyouTime.html">
+                    <div class="option">
+                        通知設定<br>
+                        <ion-icon class="option_icon" name="settings-outline"></ion-icon>
+                    </div>
+                </a>
+                <a href="calender.html">
+                    <div class="option">
+                        服薬履歴<br>
+                        <ion-icon class="option_icon" name="calendar-outline"></ion-icon>
+                    </div>
+                </a>
+                <a href="visiting_calender.html">
+                    <div class="option" style="color: black">
+                        通院履歴<br>
+                        <ion-icon class="option_icon" name="pricetag"></ion-icon>
+                    </div>
+                </a>
+            </div>
+        <div class="modal" id="modal_add_memo">
+            <h1>メモを追加</h1>
+            <input type="text" id="memo_text_field" class="underline-input" placeholder="メモを入力">
+            <br>
+            <br>
+            <br>
+            <button onclick="add_memo()">追加</button>
+
+            <a onclick="slideout('modal_add_memo')"><ion-icon name="close-outline" class="close"></ion-icon></a>
+        </div>
+        <div class="modal" id="modal_edit_memo">
+            <h1>メモを編集</h1>
+            <input type="text" id="memo_edit_field" class="underline-input" placeholder="メモを編集">
+            <br>
+            <br>
+            <br>
+            <button onclick="edit_memo()">編集</button>
+
+            <a onclick="slideout('modal_edit_memo')"><ion-icon name="close-outline" class="close"></ion-icon></a>
+        </div>
+        <script src="js/visiting_calender.js"></script>
+    </body>
+</html>

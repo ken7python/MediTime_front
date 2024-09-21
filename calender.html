@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>服薬履歴</title>
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/event_calender.min.css">
+        <link rel="stylesheet" href="css/calender.css">
+        <script src="js/event_calender.min.js"></script>
+        <script src="js/config.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>-->
+    </head>
+    <body>
+        <header>
+            <div id="header">
+                <h1>服薬履歴</h1>
+            </div>
+        </header>
+        <div class="content">
+            <div id="mode">
+                <input type="radio" id="add_history" name="mode" onclick="mode_check('modal_add_history');">
+                <label for="add_history">服薬履歴追加</label>
+                <br>
+
+                <br>
+
+                <input type="radio" id="add_memo" name="mode" onclick="mode_check('modal_add_memo');">
+                <label for="add_memo">メモ追加</label>
+
+                <p id="select_day_message">日を選択して下さい</p>
+            </div>
+            <div id="ec">
+                
+            </div>
+        </div>
+        <!--
+        <a class="back" href="index.html"><ion-icon name="arrow-back-circle-outline"></ion-icon></a>
+        -->
+        <a class="reload" onclick="location.reload()"><ion-icon name="refresh-outline"></ion-icon></button>
+        <!--<a class="print" onclick="downloadCalender()"><ion-icon name="download-outline"></ion-icon></button>
+        <script>
+            function downloadCalender(){
+                const content = document.querySelector("#ec");
+                const filename = "服用カレンダー.pdf";
+                html2pdf().from(content).save(filename);
+            }
+        </script>
+    --->
+
+            <div id="options">
+                <a href="index.html">
+                    <div class="option">
+                        ホーム<br>
+                        <ion-icon class="option_icon" name="home-outline"></ion-icon>
+                    </div>
+                </a>
+                <a href="hukuyouTime.html">
+                    <div class="option">
+                        通知設定<br>
+                        <ion-icon class="option_icon" name="settings-outline"></ion-icon>
+                    </div>
+                </a>
+                <a href="calender.html">
+                    <div class="option" style="color: black">
+                        服薬履歴<br>
+                        <ion-icon class="option_icon" name="calendar"></ion-icon>
+                    </div>
+                </a>
+                <a href="visiting_calender.html">
+                    <div class="option">
+                        通院履歴<br>
+                        <ion-icon class="option_icon" name="pricetag-outline"></ion-icon>
+                    </div>
+                </a>
+            </div>
+
+        <div class="modal" id="modal_add_history">
+            <h1>服薬履歴追加</h1>
+            <div id="checkboxes">
+                <input type="checkbox" id="morning" name="morning">
+                <label for="morning">朝</label>
+                <br>
+
+                <input type="checkbox" id="afternoon" name="afternoon">
+                <label for="afternoon">昼</label>
+                <br>
+
+                <input type="checkbox" id="night" name="night">
+                <label for="night">夜</label>
+                <br>
+
+                <input type="checkbox" id="before_sleep" name="before_sleep">
+                <label for="before_sleep">寝る前</label>
+                <br>
+
+                <input type="checkbox" id="tonpuku" name="tonpuku">
+                <label for="tonpuku">とんぷく</label>
+                <br>
+
+                <br>
+                <button onclick="add_label()">追加</button>
+            </div>
+            <a onclick="slideout('modal_add_history')"><ion-icon name="close-outline" class="close"></ion-icon></a>
+        </div>
+        <div class="modal" id="modal_add_memo">
+            <h1>メモを追加</h1>
+            <input type="text" id="memo_text_field" class="underline-input" placeholder="メモを入力">
+            <br>
+            <br>
+            <br>
+            <button onclick="add_memo()">追加</button>
+
+            <a onclick="slideout('modal_add_memo')"><ion-icon name="close-outline" class="close"></ion-icon></a>
+        </div>
+        <div class="modal" id="modal_edit_memo">
+            <h1>メモを編集</h1>
+            <input type="text" id="memo_edit_field" class="underline-input" placeholder="メモを編集">
+            <br>
+            <br>
+            <br>
+            <button onclick="edit_memo()">編集</button>
+
+            <a onclick="slideout('modal_edit_memo')"><ion-icon name="close-outline" class="close"></ion-icon></a>
+        </div>
+        <script src="js/calender.js"></script>
+    </body>
+</html>
