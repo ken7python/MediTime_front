@@ -17,6 +17,10 @@ var date;
 var dataStr;
 function add_memo(){
     var result = document.getElementById("memo_text_field").value;
+    if (result == ""){
+        alert("メモ内容を入力してください");
+        return;
+    }
     events.push({start: dateStr,end:dateStr,title: result})
         console.log(events);
         //ec.setOption("events",events);

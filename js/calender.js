@@ -23,6 +23,10 @@ var date;
 var dataStr;
 function add_memo(){
     var result = document.getElementById("memo_text_field").value;
+    if (result == ""){
+        alert("メモ内容を入力してください");
+        return;
+    }
     events.push({start: dateStr,end:dateStr,title: result})
         console.log(events);
         //ec.setOption("events",events);
@@ -70,6 +74,10 @@ function add_label(){
         labels.push("頓服")
     }
     console.log(labels)
+    if (labels.length == 0){
+        alert("追加したいものを選択してください");
+        return;
+    }
 
     data = {labels: labels,date: dateStr,day_of_week: weekDay[date.getDay()]};
         let param = {
