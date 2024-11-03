@@ -1,4 +1,6 @@
-薬の飲み忘れ防止システムです
+
+薬の飲み忘れ防止システムです。
+
 A system to prevent forgetting to take medicine
 
 ## プロジェクト構成 / Project Structure
