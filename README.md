@@ -18,4 +18,4 @@ This app is composed of the following three repositories:
 このプロジェクトでは、以下のサードパーティ製ライブラリを使用しています。  
 This project makes use of the following third-party library:
 
-- [calendar library](https://github.com/vkurko/calendar) - MIT License
+- [calendar](https://github.com/vkurko/calendar) - MIT License
