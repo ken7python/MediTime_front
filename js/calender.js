@@ -98,7 +98,9 @@ function add_label(){
 }
 function dateclick(info){
     date = info.date;
-    dateStr = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
+    var formattedDate = `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}`;
+    //dateStr = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
+    dateStr = formattedDate;
     console.log(dateStr)
     
     console.log(date);
