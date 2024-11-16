@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>薬の写真</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/vue.min.js"></script>
+
+        <link rel="stylesheet" href="css/image.css">
+    </head>
+    <body>
+        <header>
+            <div id="header">
+                <h1>薬の写真</h1>
+            </div>
+        </header>
+        <div id="app" class="content">
+            <form>
+                <div v-if="viewPhotoRadio" id="viewPhotoRadio">
+                    <input type="radio" id="viewPhoto" name="photoOption" value="view" onclick="view()">
+                    <label for="viewPhoto">写真を見る</label><br>
+                    <br>
+                </div>
+
+                <div v-if="registerPhotoRadio" id="registerPhotoRadio" onclick="register()">
+                    <input type="radio" id="registerPhoto" name="photoOption" value="register">
+                    <label for="registerPhoto">写真を登録する</label><br>
+                    <br>
+                </div>
+
+                <div v-if="viewPhotoDiv" id="viewPhotoDiv">
+                    <input type="radio" id="view_morning" name="timeOption" value="view_morning">
+                    <label for="view_morning">朝</label><br>
+
+                    <input type="radio" id="view_afternoon" name="timeOption" value="view_afternoon">
+                    <label for="view_afternoon">昼</label><br>
+
+                    <input type="radio" id="view_evening" name="timeOption" value="view_evening">
+                    <label for="view_evening">夜</label><br>
+
+                    <input type="radio" id="view_night" name="timeOption" value="view_night">
+                    <label for="view_night">寝る前</label><br>
+                </div>
+
+                <div v-if="registerPhotoDiv" id="registerPhotoDiv">
+                    <input type="radio" id="register_morning" name="timeOption" value="register_morning" onclick="shoot('朝');">
+                    <label for="register_morning">朝</label><br>
+
+                    <input type="radio" id="register_afternoon" name="timeOption" value="register_afternoon" onclick="shoot('昼');">
+                    <label for="register_afternoon">昼</label><br>
+
+                    <input type="radio" id="register_evening" name="timeOption" value="register_evening" onclick="shoot('夜');">
+                    <label for="register_evening">夜</label><br>
+
+                    <input type="radio" id="register_night" name="timeOption" value="register_night" onclick="shoot('寝る前');">
+                    <label for="register_night">寝る前</label><br>
+                </div>
+            </form>
+            <div v-if="uploadDiv" id="upload">
+                <p>{{ time }}の薬の写真をアップロードする</p>
+                <input type="file" accept="image/*" capture="camera" onchange="Preview()">
+                <img v-if="imagePreview != null" id="imagePreview" :src="imagePreview" alt="Image Preview" style="width: 100%; height: auto;">
+
+                <div v-if="imagePreview != null" id="uploadMenu">
+                    <button id="uploadButton" onclick="upload()">登録</button>
+                    <button id="cancelButton" onclick="cancelUpload()">キャンセル</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="options">
+            <a href="index.html">
+                <div class="option">
+                    ホーム<br>
+                    <ion-icon class="option_icon" name="home"></ion-icon>
+                </div>
+            </a>
+            <a href="hukuyouTime.html">
+                <div class="option">
+                    通知設定<br>
+                    <ion-icon class="option_icon" name="settings-outline"></ion-icon>
+                </div>
+            </a>
+            <a href="calender.html">
+                <div class="option">
+                    服薬履歴<br>
+                    <ion-icon class="option_icon" name="calendar-outline"></ion-icon>
+                </div>
+            </a>
+            <a href="visiting_calender.html">
+                <div class="option">
+                    通院履歴<br>
+                    <ion-icon class="option_icon" name="pricetag-outline"></ion-icon>
+                </div>
+            </a>
+            <a href="image.html">
+                <div class="option" style="color: black">
+                    薬の写真<br>
+                    <ion-icon class="option_icon" name="camera"></ion-icon>
+                </div>
+            </a>
+        </div>
+    </body>
+
+    <script src="js/image.js"></script>
+</html>
