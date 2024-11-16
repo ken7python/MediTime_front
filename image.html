@@ -62,8 +62,16 @@
                 </div>
             </form>
             <div v-if="uploadDiv" id="upload">
-                <p>{{ time }}の薬の写真をアップロードする</p>
-                <input type="file" accept="image/*" capture="camera" onchange="Preview()">
+                <div id="satuei">
+                    <p>{{ time }}の薬の写真を撮影する</p>
+                    <div class="deco-file" v-if="imagePreview == null">
+                        <label>
+                            撮影する
+                            <input type="file" accept="image/*" capture="camera" onchange="Preview()">
+                        </label>
+                        <p class="file-names"></p>
+                    </div>
+                </div>
                 <img v-if="imagePreview != null" id="imagePreview" :src="imagePreview" alt="Image Preview" style="width: 100%; height: auto;">
 
                 <div v-if="imagePreview != null" id="uploadMenu">
