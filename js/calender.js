@@ -204,13 +204,13 @@ function eventPush(){
             color = "#ff6c94"
         }else
         if (label == "朝"){
-            color = "#FFA726";
+            color = "#42A5F5";
         }else
         if (label == "昼"){
-            color = "#66BB6A";
+            color = "#FFA726";
         }else
         if (label == "夜"){
-            color = "#42A5F5";
+            color = "#757575";
         }else
         if (label == "寝る前"){
             color = "#AB47BC";
