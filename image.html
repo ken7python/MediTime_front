@@ -10,7 +10,6 @@
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script src="js/config.js"></script>
         <script src="js/vue.min.js"></script>
-
         <link rel="stylesheet" href="css/image.css">
     </head>
     <body>
@@ -20,7 +19,6 @@
             </div>
         </header>
         <div id="app" class="content">
-            <form>
                 <div v-if="viewPhotoRadio" id="viewPhotoRadio">
                     <input type="radio" id="viewPhoto" name="photoOption" value="view" onclick="view()">
                     <label for="viewPhoto">写真を見る</label><br>
@@ -34,17 +32,23 @@
                 </div>
 
                 <div v-if="viewPhotoDiv" id="viewPhotoDiv">
-                    <input type="radio" id="view_morning" name="timeOption" value="view_morning">
+                    <input type="radio" id="view_morning" name="timeOption" value="view_morning" onclick="showImage('朝')">
                     <label for="view_morning">朝</label><br>
 
-                    <input type="radio" id="view_afternoon" name="timeOption" value="view_afternoon">
+                    <input type="radio" id="view_afternoon" name="timeOption" value="view_afternoon" onclick="showImage('昼')">
                     <label for="view_afternoon">昼</label><br>
 
-                    <input type="radio" id="view_evening" name="timeOption" value="view_evening">
+                    <input type="radio" id="view_evening" name="timeOption" value="view_evening" onclick="showImage('夜')">
                     <label for="view_evening">夜</label><br>
 
-                    <input type="radio" id="view_night" name="timeOption" value="view_night">
+                    <input type="radio" id="view_night" name="timeOption" value="view_night" onclick="showImage('寝る前')">
                     <label for="view_night">寝る前</label><br>
+
+                    <image v-if="showingImage != null" :src="showingImage" alt="Image Preview" style="width: 100%; height: auto;">
+                    <button v-if="showingImage != null" onclick="deleteImage()">削除</button>
+                    <div id="showingTextDiv" v-if="showingText != null">
+                        <p v-if="showingText != null">{{ showingText }}</p>
+                    </div>
                 </div>
 
                 <div v-if="registerPhotoDiv" id="registerPhotoDiv">
@@ -60,7 +64,6 @@
                     <input type="radio" id="register_night" name="timeOption" value="register_night" onclick="shoot('寝る前');">
                     <label for="register_night">寝る前</label><br>
                 </div>
-            </form>
             <div v-if="uploadDiv" id="upload">
                 <div id="satuei">
                     <p>{{ time }}の薬の写真を撮影する</p>
